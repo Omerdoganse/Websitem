@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Admin<span>.</span></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="active" data-tab="hakkimda-tab"><i class="fas fa-user"></i> Hakkımda</li>
+                <li data-tab="yetenekler-tab"><i class="fas fa-code"></i> Yetenekler</li>
+                <li data-tab="projeler-tab"><i class="fas fa-project-diagram"></i> Projeler</li>
+                <li data-tab="mesajlar-tab"><i class="fas fa-envelope"></i> Mesajlar</li>
+                <!-- Go to Home -->
+                <li><a href="/" style="color:inherit; text-decoration:none;"><i class="fas fa-home"></i> Siteye Dön</a>
+                </li>
+                <li id="logout-btn" class="logout"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <h1 id="page-title">Hakkımda Yönetimi</h1>
+                <div class="user-info">Hoşgeldin</div>
+            </header>
+
+            <div class="content-area">
+                <!-- Hakkımda Tab -->
+                <div id="hakkimda-tab" class="tab-content active">
+                    <div class="card">
+                        <h3>Hakkımda Yazısı</h3>
+                        <div class="form-group">
+                            <textarea id="about-content-input" rows="6"></textarea>
+                        </div>
+                        <button id="save-about-btn" class="btn btn-primary">Kaydet</button>
+                    </div>
+                </div>
+
+                <!-- Yetenekler Tab -->
+                <div id="yetenekler-tab" class="tab-content">
+                    <div class="card add-card">
+                        <h3>Yeni Yetenek Ekle</h3>
+                        <form id="add-skill-form" class="inline-form">
+                            <input type="text" id="skill-name" placeholder="Yetenek Adı (örn: React)" required>
+                            <input type="text" id="skill-icon" placeholder="FontAwesome Class (örn: fab fa-react)">
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </form>
+                    </div>
+                    <div class="card table-card">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>İkon</th>
+                                    <th>İsim</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="skills-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Projeler Tab -->
+                <div id="projeler-tab" class="tab-content">
+                    <div class="card add-card">
+                        <h3>Yeni Proje Ekle</h3>
+                        <form id="add-project-form" class="stack-form">
+                            <input type="text" id="project-title" placeholder="Proje Başlığı" required>
+                            <input type="text" id="project-image" placeholder="Görsel URL">
+                            <input type="text" id="project-link" placeholder="Proje Linki">
+                            <textarea id="project-desc" rows="3" placeholder="Proje Açıklaması..."></textarea>
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </form>
+                    </div>
+                    <div class="card table-card">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Başlık</th>
+                                    <th>Link</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projects-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Mesajlar Tab -->
+                <div id="mesajlar-tab" class="tab-content">
+                    <div class="card table-card">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tarih</th>
+                                    <th>İsim</th>
+                                    <th>E-Posta</th>
+                                    <th>Mesaj</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/admin/js/admin.js"></script>
+</body>
+
+</html>
